@@ -12,8 +12,9 @@ class Posts
     echo 'Posts is loaded<br>';
   }
 
-  public function edit(){
+  public function edit($postId){
     echo 'edit method is loaded<br>';
+    echo 'post '.$postId.' is edited<br>';
   }
 
   public function index() {
