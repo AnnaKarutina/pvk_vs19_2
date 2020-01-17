@@ -9,22 +9,18 @@ class Core
   {
     $url = $this->getUrl();
     // controller
-    $controllerName = ucwords($url[0]);
-    $controllerFileName = '../app/controllers/'.$controllerName.'.php';
-    if(file_exists($controllerFileName)){
-      $this->currentController = $controllerName;
+    if(file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
+      $this->currentController = ucwords($url[0]);
       unset($url[0]);
     }
-    require_once $controllerFileName;
+    require_once '../app/controllers/'.$this->currentController.'.php';
     $this->currentController = new $this->currentController;
     // method
-    $methodName = $url[1];
-    if(method_exists($this->currentController, $methodName)){
-      $this->currentMethod = $methodName;
+    if(method_exists($this->currentController, $url[1])){
+      $this->currentMethod = $url[1];
       unset($url[1]);
     }
 
-    echo $methodName;
     echo '<pre>';
     print_r($url);
     echo '</pre>';
