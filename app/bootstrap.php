@@ -1,4 +1,5 @@
 <?php
 // laadime vajalikud raamatukogud
-require_once 'libraries/Core.php';
-require_once 'libraries/Controller.php';
+spl_autoload_register(function ($className) {
+  require_once 'libraries/'.$className.'.php';
+});
