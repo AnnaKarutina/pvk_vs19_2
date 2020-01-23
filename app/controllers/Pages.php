@@ -12,8 +12,8 @@ class Pages extends Controller
   }
 
   public function test(){
-    $this->pagesModel->addUser();
-    echo 'vist toimib :D';
+    $users = $this->pagesModel->getUsers();
+    print_r($users);
   }
 
   public function edit(){
