@@ -12,8 +12,10 @@ class Pages extends Controller
   }
 
   public function test(){
-    $users = $this->pagesModel->getUsers();
-    print_r($users);
+    $usersCount = $this->pagesModel->usersCount();
+    echo '<pre>';
+    print_r($usersCount);
+    echo '</pre>';
   }
 
   public function edit(){
